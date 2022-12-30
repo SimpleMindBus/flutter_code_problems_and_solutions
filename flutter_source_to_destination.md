@@ -134,7 +134,53 @@ class _MapPageState extends State<MapPage> {
   }
 }
 ```
+You can use this function in your Flutter app by passing the encoded points string to it and storing teh returned list of points. You can then use the points to draw a path on the map or perform other operations.
 
+To render the points returned by the `_decodePoly()` function in a `GoogleMap` widget, you will need to use the `Polyline` widget.
+
+Here is an example of how you can use the `Polyline` widget to draw a path on the map using the points returned by the `_decodePoly()` function;
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+class MapPage extends StatefulWidget {
+   final String source;
+   final String destination;
+   final List<LatLng> points;
+   
+   MapPage({this.source, this.destination, this.points});
+   
+   @override
+   _MapPageState createState() => _MapPageState();
+}
+
+class _MapPageState extends State<MapPage> {
+  GoogleMapController mapController;
+  
+  @override 
+  Widget build(BuildContext context){
+    return Scaffold(
+      body: GoogleMap(
+        onMapCreated: (GoogleMapController controller) {
+          mapController = controller;
+        },
+        initialCameraPosition: CameraPosition(
+          target:widget.points[0],
+          zoom: 15,
+        ),
+        polygons: Set.of([
+          Polyline(
+            points: widget.points,
+            color: Colors.blue,
+            width: 5,
+          ),
+        ]),
+      )
+    )
+  }
+}
+```
 
 
 
