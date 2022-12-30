@@ -182,7 +182,9 @@ class _MapPageState extends State<MapPage> {
 }
 ```
 
+In this example, the MapPage widget takes a list of LatLng points as an input parameter, and uses the Polyline widget to draw a path on the map using these points. It also sets the initial camera position to the first point in the list, so that the map is centered on the start of the path.
 
+You can customize the appearance of the path by changing the color and width of the Polyline widget, or by adding markers or other overlays to the map.
 
 
 
