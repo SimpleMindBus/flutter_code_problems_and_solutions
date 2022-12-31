@@ -50,21 +50,3 @@ if(response.status == PhonePeResponseStatus.Success){
 } else if (response.status == PhonePeResponseStatus.Cancelled) {
   // Payment was cancelled by the user
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
