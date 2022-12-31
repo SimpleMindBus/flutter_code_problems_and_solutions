@@ -64,7 +64,14 @@ Here is an example of how you can generate a random transaction ID in python:
 import random
 import string
 def generate_transaction_id():
-  return ''.join(random.choices(string.ascii_uppercase + string.digits,k=12))
+  return ''.join(random.choices(string.ascii_uppercase + string.digits,k=32))
 ```
 
 This function generates a random string of 32 characters using uppercase letters and digits. You can use a similar approach in your own system to generate a unique transaction ID.
+In the Python example given in the previous answer, the empty string ('') is passed as the separator to the join function, which is called on the result of the random.choices function.
+
+The join function is used to concatenate a list of strings into a single string, with the separator string inserted between each element. In this case, the empty string is used as the separator, which means that the elements of the list will be concatenated without any separator.
+
+For example, if the list returned by random.choices is ['A', 'B', 'C'], the join function will return the string 'ABC'.
+
+The random.choices function is used to select a random element from a list of choices with replacement. It takes two arguments: the list of choices and the number of elements to select. In this case, the list of choices is string.ascii_uppercase + string.digits, which is a combination of the uppercase letters and digits, and the number of elements to select is 32. This means that the random.choices function will return a list of 32 randomly chosen elements from the list of uppercase letters and digits.
