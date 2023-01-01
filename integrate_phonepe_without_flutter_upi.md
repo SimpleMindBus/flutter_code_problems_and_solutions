@@ -75,3 +75,23 @@ The join function is used to concatenate a list of strings into a single string,
 For example, if the list returned by random.choices is ['A', 'B', 'C'], the join function will return the string 'ABC'.
 
 The random.choices function is used to select a random element from a list of choices with replacement. It takes two arguments: the list of choices and the number of elements to select. In this case, the list of choices is string.ascii_uppercase + string.digits, which is a combination of the uppercase letters and digits, and the number of elements to select is 32. This means that the random.choices function will return a list of 32 randomly chosen elements from the list of uppercase letters and digits.
+
+
+A deep link is a URL that links directly to a specific piece of content within an app, rather than to app's homepage or main screen. Deep links allow users to easily access specific content within an app, an they can be used to to drive traffic to specific content or features within an app.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
