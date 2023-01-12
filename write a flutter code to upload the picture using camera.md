@@ -142,6 +142,18 @@ class _CameraExampleState extends State<CameraExample> {
       ),
     );
   }
+  void _uploadPicture(String path) async {
+    Dio dio = new Dio();
+    var formData = FormData.fromMap({
+      "file":await Multipartfile.fromFile(path, filename: "picture.jpg")
+    });
+    try {
+      var response = await dio.post("http://example.com/postPicture");
+      print(response.data);
+    } catch (e) {
+      print(e);
+    }
+  }
 }
 ```
 This code uses the `camera` package to access the devices's camera and take a picture. It then uses the `path_provider`
@@ -150,6 +162,13 @@ image is then printed to the console.
 
 You can then use any http package like `dio` or `http` to upload the image
 
+
+In above example the `dio` package in Flutter to upload a picture save in the temporary directory to a server at the URL
+`http://example.com/postPicture` using the HTTP `POST` method.
+The `_uploadPicture` method is called with the path of the saved image when the user takes
+a picture. The method create a `Dio` object, which is used to make the HTTP request to the server. Then it creates a `FormData` object with teh file and its name. After that it uses `dio.post` method to upload teh file to the server at the specified url and the data will be sent in `formData` format.
+
+It also uses the `try-catch` statement to catch any errors that may occur during the upload process and print them to the console.
 
 
 
